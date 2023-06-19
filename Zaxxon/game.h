@@ -72,7 +72,7 @@ public:
 			auto* behaviour = new LaserBehaviourComponent();
 			behaviour->Create(engine, laser, &game_objects);
 			auto* coll = new CollideComponent();
-			coll->Create(engine, laser, &game_objects, { 5, -15, 5 });
+			coll->Create(engine, laser, &game_objects, { 5, -10, 5 });
 			auto* render = new RenderSpriteSheetComponent();
 			render->Create(engine, laser, &game_objects, "assets/sprites/player_projectile-sheet.png", 4, &(cam->position));
 			render->addAnimation(0, {  LASER_ANIM_SEQ, 4, LASER_ANIM_FRAMETIME });
@@ -185,16 +185,16 @@ public:
 			}
 		}
 
-		// TODO: Sort sprites
-		//std::unordered_map<double, GameObject*> ordered;
-		//for (auto go = game_objects.begin(); go != game_objects.end(); go++)
-		//	ordered[(*go)->position.y] = (*go);
-		//for (auto go = ordered.begin(); go != ordered.end(); ++go)
-		//	(*go).second->Update(dt);
-
+		// TODO: Fix proper sorting of gameobjects/sprites by depth
+		std::vector<GameObject*> game_objects_sorted(game_objects.begin(), game_objects.end());
+		sort(game_objects_sorted.begin(), game_objects_sorted.end(),
+			[](const GameObject* a, GameObject* b) {return (a->isoPos.x + a->isoPos.y) < (b->isoPos.x + b->isoPos.y); }
+		);
+		
 		cam->Update(dt);
-		for (auto go : game_objects)
+		for (auto go : game_objects_sorted) {
 			go->Update(dt);
+		}
 		for (auto go : game_objects_vfx)
 			go->Update(dt);
 

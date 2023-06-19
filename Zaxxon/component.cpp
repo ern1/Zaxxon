@@ -215,10 +215,13 @@ void CollideComponent::Update(double dt)
 				double go0_diag = go0->isoPos.distance(go0->isoPos + go0_coll->size);
 
 				// Collision if the distance between the objects is less than their combined half-diagonal
-				if (dist < (go_diag + go0_diag) / 2)
+				if (dist < (go_diag + go0_diag) / 3)
 				{
-                 	go->Receive({ MessageType::HIT, go0->isoPos });
-					go0->Receive({ MessageType::HIT, go->isoPos });
+                 	//go->Receive({ MessageType::HIT, go0->isoPos });
+					//go0->Receive({ MessageType::HIT, go->isoPos });
+					go->Receive({ MessageType::HIT, IsoVector{ go0->isoPos.x, go0->isoPos.y + go0_coll->size.y, go0->isoPos.z } });
+					go0->Receive({ MessageType::HIT, IsoVector{ go->isoPos.x, go->isoPos.y + size.y, go->isoPos.z } });
+
 				}
 
 				// OLD

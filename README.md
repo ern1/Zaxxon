@@ -1,5 +1,10 @@
+<!-- <p align="center"><img src="logo.png" alt="Zaxxon" title="Zaxxon" width=80% /></p> -->
+
 <h1><img align="center" height="30" src="player.png"> Zaxxon</h1>
+
 ...
+
+
 
 ## Credits
 

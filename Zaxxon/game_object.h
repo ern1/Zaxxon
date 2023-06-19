@@ -79,4 +79,9 @@ public:
 	std::string getID() {
 		return id;
 	}
+
+	bool operator()(const GameObject& go1, GameObject& go2) const
+	{
+		return (go1.isoPos.x + go1.isoPos.y) < (go2.isoPos.x + go2.isoPos.y);
+	}
 };
