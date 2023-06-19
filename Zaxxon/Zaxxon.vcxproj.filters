@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\core">
+      <UniqueIdentifier>{64842afc-28d4-42b1-b8e2-eb94bea9dd60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\entities">
+      <UniqueIdentifier>{334145ec-1455-4bec-a28a-f4a866faaa31}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="zaxxon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="iso_engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="component.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="game_object.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="audio_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram_GameObject.cd" />
+    <None Include="ClassDiagram_Component.cd" />
+    <None Include="ClassDiagram_Other.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="projectile.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="obstacle.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="laser.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="isoVector.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="iso_engine.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="sprite.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="audio_manager.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="vfx.h">
+      <Filter>Header Files\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="object_pool.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="vector2D.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="game_object.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="component.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="data\level_1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\level_0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\level_2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\player.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\barrel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\blue_sheet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\canon_blue.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\canon_green.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\enemy_rocket.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\enemy_ship.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\enemy_turret.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\flag.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\laser.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\level_1_.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\player.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\player_shadow.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\points_5.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\points_10.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\points_15.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\satellite.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\wall_0.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="data\wall_1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="data\space_invaders.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+  </ItemGroup>
+</Project>
