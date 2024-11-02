@@ -13,10 +13,14 @@ void Sprite::destroy()
 	SDL_DestroyTexture(texture);
 }
 
-void Sprite::draw(int x, int y)
+void Sprite::draw(int x, int y, int alpha = 255)
 {
 	SDL_Rect rect = { x, y, 0, 0 };
 	SDL_QueryTexture(texture, NULL, NULL, &(rect.w), &(rect.h));
+
+	// Todo: test
+	// Set alpha value (see https://wiki.libsdl.org/SDL2/SDL_SetTextureAlphaMod)
+	SDL_SetTextureAlphaMod(texture, alpha);
 
 	//Render texture to screen
 	SDL_RenderCopy(renderer, texture, NULL, &rect);
@@ -25,6 +29,10 @@ void Sprite::draw(int x, int y)
 void Sprite::draw_clip(int x, int y, SDL_Rect* clip)
 {
 	SDL_Rect rect = { x, y, clip->w, clip->h };
+
+	// Todo: test
+	// Set alpha value (see https://wiki.libsdl.org/SDL2/SDL_SetTextureAlphaMod)
+	SDL_SetTextureAlphaMod(texture, alpha);
 
 	//Render texture to screen
 	SDL_RenderCopy(renderer, texture, clip, &rect);
