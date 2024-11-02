@@ -47,7 +47,8 @@ public:
 };
 
 // TODO: Test this. Add effect Effect object to RenderComponent, and call its Update if is_active = true?
-//       To use it, just add a FlickerEffect object to Player (in game.h) and call it's start() method when taking damage
+//        - Also change so draw methods get the current alpha value for the effect in these cases.
+//          - To use it, just add a FlickerEffect object to Player (in game.h) and call it's start() method when taking damage
 struct Effect
 {
 	double effect_duration; // total duration of flicker effect
