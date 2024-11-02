@@ -80,7 +80,7 @@ struct FlickerEffect : Effect
 	Uint8 current_alpha; // use flicker_alpha value when true, otherwise default (255)
 
 	FlickerEffect(double duration, double flicker_time, Uint8 alpha)
-		: effect_duration(duration), flicker_time(flicker_time)
+		: effect_duration(duration), flicker_time(flicker_time), flicker_alpha(alpha)
 	{
 		current_alpha = std::clamp(alpha, 0, 255);
 	}
@@ -98,7 +98,7 @@ struct FlickerEffect : Effect
 				
 		if (timer > flicker_time)
 		{
-			current_alpha = current_alpha == flicker_alpha ? 0 : flicker_alpha;
+			current_alpha = current_alpha == flicker_alpha ? 255 : flicker_alpha;
 			timer = 0;
 		}
 	}
