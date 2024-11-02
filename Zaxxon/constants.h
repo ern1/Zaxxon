@@ -3,7 +3,7 @@
 #include "isoVector.h"
 
 /****** DISPLAY ETC ******/
-// default 224 x 256 (hade ungef‰r kamera-offset 30, -120 dÂ)
+// default 224 x 256 (hade ungef√§r kamera-offset 30, -120 d√•)
 const unsigned int DISPLAY_WIDTH  = 448;
 const unsigned int DISPLAY_HEIGHT = 256;
 
@@ -25,8 +25,8 @@ const float        PLAYER_ENERGY_REGEN_TIME  = 0.3f;
 const unsigned int PLAYER_FUEL_MAX           = 16 * 8;
 const float        PLAYER_FUEL_TIME          = 0.5f;    // time for fuel to decrease by 1 unit
 const float        PLAYER_FIRE_TIME_INTERVAL = .15f;
-const double       PLAYER_INVINCIBLE_TIME    = 1.;
-const double       PLAYER_INVINCIBLE_RENDER_INTERVAL = 0.2;
+const double       PLAYER_INVINCIBLE_TIME    = 2.;
+const double       PLAYER_INVINCIBLE_RENDER_INTERVAL = 0.25;
 
 /****** WEAPONS / SHIPS ******/
 const double       LASER_SPEED       = 350.0;
