@@ -46,6 +46,66 @@ public:
 	void setRenderFlat(bool render_flat) { this->render_flat = render_flat; }
 };
 
+// TODO: Test this. Add effect Effect object to RenderComponent, and call its Update if is_active = true?
+//       To use it, just add a FlickerEffect object to Player (in game.h) and call it's start() method when taking damage
+struct Effect
+{
+	double effect_duration; // total duration of flicker effect
+
+	bool is_active = false;
+	double elapsed_time; // 
+	double effect_timer; // // keeps track of time until next state change
+
+	void start()
+	{
+		timer = 0;
+		elapsed_time = 0;
+		is_active = true;
+	}
+
+	void stop()
+	{
+		is_active = false;
+	}
+	
+	virtual void Update(double dt) = 0;
+}
+
+struct FlickerEffect : Effect
+{
+	//double effect_duration; // total duration of flicker effect
+	//bool is_active = false
+	
+	double flicker_time; // time between alpha value changes
+	Uint8 flicker_alpha;
+
+	Uint8 current_alpha; // use flicker_alpha value when true, otherwise default (255)
+
+	FlickerEffect(double duration, double flicker_time, Uint8 alpha)
+		: effect_duration(duration), flicker_time(flicker_time)
+	{
+		current_alpha = std::clamp(alpha, 0, 255);
+	}
+
+	void Update(double dt)
+	{
+		if (!is_active)
+			return;
+
+		elapsed_time += dt;
+		timer += dt;
+		
+		if (elapsed_time > effect_duration)
+			this->stop();
+				
+		if (timer > flicker_time)
+		{
+			current_alpha = current_alpha == flicker_alpha ? 0 : flicker_alpha;
+			timer = 0;
+		}
+	}
+}
+
 
 struct Animation
 {
