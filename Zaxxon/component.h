@@ -54,8 +54,8 @@ struct Effect
 	double effect_duration; // total duration of flicker effect
 
 	bool is_active = false;
-	double elapsed_time; // 
-	double effect_timer; // // keeps track of time until next state change
+	double elapsed_time; 	// elapsed time since start()
+	double effect_timer; 	// keeps track of time until next state change
 
 	void start()
 	{
@@ -74,9 +74,6 @@ struct Effect
 
 struct FlickerEffect : Effect
 {
-	//double effect_duration; // total duration of flicker effect
-	//bool is_active = false
-	
 	double flicker_time; // time between alpha value changes
 	Uint8 flicker_alpha;
 
