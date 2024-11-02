@@ -9,7 +9,7 @@ class Player : public GameObject
 public:
 	int lives;	        // it's game over when goes to zero
 	unsigned int fuel;  // TODO: make this more useful
-	bool is_invincible; // true a short while after player take damage
+	double invincible_time; // remaining ms that player is invincible
     
 	virtual ~Player() { SDL_Log("Player::~Player"); }
 
@@ -19,7 +19,7 @@ public:
 		GameObject::Init();
 		lives = PLAYER_LIVES;
 		fuel = PLAYER_FUEL_MAX;
-		is_invincible = false;
+		invincible_time = 0;
 	}
 
 	virtual void Receive(Message m)
@@ -39,12 +39,12 @@ public:
 
 	void RemoveLife()
 	{
-		if (is_invincible) {
+		if (invincible_time >= 0) {
 			return;
 		}
 		
 		--lives;
-		setInvincible(true);
+		setInvincible(PLAYER_INVINCIBLE_TIME);
 
 		SDL_Log("Remaining lives: %d", lives);
 	}
@@ -55,15 +55,15 @@ public:
 			Send({ MessageType::GAME_OVER, fuel });
 	}
 
-	void setInvincible(bool state)
+	// increase/decrease time that player is invincible
+	void setInvincible(double time)
 	{
-		is_invincible = state;
+		if (invincible_time < 0)
+			return;
 
-		if (is_invincible)
-		{
-            // TODO: make player invincible for PLAYER_INVINCIBLE_TIME seconds
-			is_invincible = false; // temp
-		}
+		// limit time to PLAYER_INVINCIBLE_TIME
+		invincible_time = std:min(invincible_time += time, PLAYER_INVINCIBLE_TIME);
+		//invincible_time = std:max(invincible_time < 0 ? time : invincible_time += time, PLAYER_INVINCIBLE_TIME);
 	}
 };
 
@@ -136,11 +136,17 @@ public:
 		energy = std::min(energy + static_cast<float>(dt), PLAYER_ENERGY_MAX * PLAYER_ENERGY_REGEN_TIME);
 		fuel_timer += dt;
 
-		if (fuel_timer > PLAYER_FUEL_TIME / game_speed)
 		{
 			auto* player = dynamic_cast<Player*>(go);
-			player->RemoveFuel();
-			fuel_timer -= PLAYER_FUEL_TIME / game_speed; // reset timer
+			
+			if (fuel_timer > PLAYER_FUEL_TIME / game_speed)
+			{
+				player->RemoveFuel();
+				fuel_timer -= PLAYER_FUEL_TIME / game_speed; // reset timer
+			}
+	
+			if (invincible_time > 0)
+				player->setInvincible(-dt * game_speed)
 		}
 
 		// Move/fire
